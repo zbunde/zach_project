@@ -16,7 +16,6 @@ class SellersController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = "Account not created"
-
       render :new
     end
   end
