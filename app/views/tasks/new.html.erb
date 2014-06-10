@@ -1,0 +1,29 @@
+<% if @task.errors.present? %>
+    <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= form_for [@listing, @task] do |f| %>
+  <table>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description, style: "width: 300px; height: 150px;"%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :finish_by %></td>
+      <td><%= f.text_field :finish_by, style: "width: 300px; height: 15px;"%></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit :create_task, :value => "Create Task" %></td>
+    </tr>
+<% end %>
+</table>

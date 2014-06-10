@@ -1,0 +1,17 @@
+<h1><%= @listing.address %></h1>
+<%= link_to "Edit", edit_listing_task_path(:listing_id => @task.listing_id, :id => @task.id)%>
+<%= link_to "Delete", listing_task_path, method: :delete, confirm: "Are you sure?" %>
+
+
+<h2>Name:</h2>
+<%= @task.name %>
+<br>
+<h2>Description:</h2>
+<%= @task.description %>
+<br>
+<h2>Finish by:</h2>
+<%= @task.finish_by %>
+
+
+<h2>Completed :</h2>
+<%= @task.completed? %>

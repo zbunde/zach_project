@@ -1,6 +1,15 @@
-<h1>Welcome</h1>
+<h1>Hello</h1>
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: name %>
+  <% end %>
+<% if current_user %>
+  <%= current_user.email %>
+  <%= link_to 'Logout', logout_path %>
+  <%= link_to 'Create Listing', new_listing_path %>
+  <% @listings.each do |x| %>
+    <%= link_to x.address, listing_path(x) %>
+    <% end %>
+<% else %>
+  <%= link_to 'Register as a seller', new_seller_path %>
+  <%= link_to 'login', login_path %>
 <% end %>
-
-<%= link_to 'Register as a seller', new_seller_path %>

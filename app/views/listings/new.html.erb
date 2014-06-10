@@ -1,0 +1,19 @@
+<% if @listing.errors.present? %>
+  <ul>
+    <% @listing.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @listing do |f| %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :owner_name %>
+  <%= f.text_field :owner_name %>
+
+  <%= f.submit :create %>
+
+<% end %>
