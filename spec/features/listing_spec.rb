@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 feature 'Listing' do
-  scenario 'Registered seller can create a listing' do
-    create_seller(:email => 'zbunde@gmail.com', :password => 'password')
+  scenario 'Registered company can create a listing' do
+    create_company(:email => 'zbunde@gmail.com', :password => 'password')
     visit '/'
     click_on 'login'
     fill_in 'Email', :with => 'zbunde@gmail.com'

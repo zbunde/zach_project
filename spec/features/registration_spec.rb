@@ -2,7 +2,7 @@ require 'spec_helper'
 
 
 feature 'Guest' do
-  scenario 'can register to become a sellers' do
+  scenario 'can register to become a companies' do
     visit '/'
     click_on 'Register as a seller'
     fill_in 'Email', :with => 'zbunde@gmail.com'

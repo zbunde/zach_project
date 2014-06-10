@@ -1,19 +1,19 @@
 module ObjectCreationMethods
 
-  def create_seller(attributes = {})
-    seller = new_seller(attributes)
+  def create_company(attributes = {})
+    seller = new_company(attributes)
     seller.save!
     seller
   end
 
-  def new_seller(attributes = {})
+  def new_company(attributes = {})
     defaults =
       {
         :email => "user#{counter}@gmail.com",
         :password => 'password',
         :password_confirmation => 'password',
       }
-    Seller.new(defaults.merge(attributes))
+    Company.new(defaults.merge(attributes))
   end
 
   def create_listing(attributes = {})

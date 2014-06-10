@@ -2,6 +2,10 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
   end
+  def index
+    @listings = Listing.where(:seller_id => current_user)
+  end
+
 
   def create
     address = params[:listing][:address]

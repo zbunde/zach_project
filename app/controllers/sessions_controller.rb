@@ -1,17 +1,17 @@
 class SessionsController < ApplicationController
 
   def new
-    @seller = Seller.new
+    @company = Company.new
   end
 
   def login
     email = params[:email]
     password = params[:password]
-    @seller = Seller.find_by_email(email)
+    @company = Company.find_by_email(email)
 
-    if @seller && @seller.authenticate(password)
-      session[:seller_id] = @seller.id
-      flash[:notice] = "Welcome back #{@seller.email}"
+    if @company && @company.authenticate(password)
+      session[:company_id] = @company.id
+      flash[:notice] = "Welcome back #{@company.email}"
 
       redirect_to root_path
     else

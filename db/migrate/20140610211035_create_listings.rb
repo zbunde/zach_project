@@ -3,7 +3,7 @@ class CreateListings < ActiveRecord::Migration
     create_table :listings do |t|
       t.string :address
       t.string :owner_name
-      t.string :seller_id
+      t.integer :seller_id
 
     end
   end

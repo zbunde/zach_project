@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if logged_in?
-      Seller.find(session[:seller_id])
+      Company.find(session[:company_id])
     end
 
   end
 
   def logged_in?
-    !!session[:seller_id]
+    !!session[:company_id]
   end
 
 end

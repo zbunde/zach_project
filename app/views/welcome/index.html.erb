@@ -3,13 +3,12 @@
   <%= content_tag :div, msg, class: name %>
   <% end %>
 <% if current_user %>
-  <%= current_user.email %>
-  <%= link_to 'Logout', logout_path %>
-  <%= link_to 'Create Listing', new_listing_path %>
-  <% @listings.each do |x| %>
-    <%= link_to x.address, listing_path(x) %>
-    <% end %>
+  <%= current_user.email %><br>
+  <%= link_to 'Logout', logout_path %><br>
+  <%= link_to 'Create Listing', new_listing_path %><br>
+  <%= link_to 'View Listings', listings_path %><br>
+
 <% else %>
-  <%= link_to 'Register as a seller', new_seller_path %>
+  <%= link_to 'Register as a seller', new_company_path %>
   <%= link_to 'login', login_path %>
 <% end %>

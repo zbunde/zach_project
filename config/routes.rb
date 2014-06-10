@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :sellers
+  resources :companies
   resources :listings do
     resources :tasks
   end
