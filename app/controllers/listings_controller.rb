@@ -10,9 +10,12 @@ class ListingsController < ApplicationController
   def create
     address = params[:listing][:address]
     owner_name = params[:listing][:owner_name]
-    @listing = Listing.create(:address => address, :owner_name => owner_name, :seller_id => session[:seller_id])
+    owner_email = params[:listing][:owner_email]
+    @listing = Listing.create(:address => address, :owner_name => owner_name, :seller_id => session[:company_id], :owner_email => owner_email)
 
     if @listing.save
+      @company = current_user
+      Mailer.invite_owner(owner_email, @company.email).deliver
       flash[:notice] = "Listing created"
       redirect_to listing_path(@listing)
     else

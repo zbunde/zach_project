@@ -11,6 +11,7 @@ class CompaniesController < ApplicationController
     @company = Company.create(:email => email, :password => password, :password_confirmation => password_confirmation)
 
     if @company.save
+      Mailer.welcome_email(@company).deliver
       session[:company_id] = @company.id
       flash[:notice] = "Welcome #{@company.email}"
       redirect_to root_path

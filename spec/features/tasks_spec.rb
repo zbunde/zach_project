@@ -3,11 +3,11 @@ require 'spec_helper'
 
 feature 'User' do
   scenario 'can create a task for a listing' do
-    seller = (create_company(:email => 'zbunde@gmail.com', :password => 'password'))
-    listing = create_listing(:address => '1234 example street', :seller_id => seller.id)
+    company = (create_company(:email => 'zbunde@gmail.com', :password => 'password'))
+    listing = create_listing(:address => '1234 example street', :seller_id => company.id, :owner_email => "joe@example.com")
     p listing
     visit '/'
-    sign_in(seller)
+    sign_in(company)
     click_on 'View Listings'
     click_on "#{listing.address}"
     click_on 'Create Task'

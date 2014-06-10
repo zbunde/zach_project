@@ -27,6 +27,7 @@ module ObjectCreationMethods
       :address => "123#{counter}example road",
       :owner_name => "Joe Example",
       :seller_id => "1",
+      :owner_email => "joe@example.com"
 
     }
     Listing.new(defaults.merge(attributes))
