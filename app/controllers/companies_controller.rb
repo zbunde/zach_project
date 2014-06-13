@@ -13,11 +13,12 @@ class CompaniesController < ApplicationController
     if @company.save
       Mailer.welcome_email(@company).deliver
       session[:company_id] = @company.id
-      flash[:notice] = "Welcome #{@company.email}"
+      flash[:notice] = t('flash.company_creation.success')
       redirect_to root_path
     else
-      flash[:notice] = "Account not created"
       render :new
     end
   end
 end
+
+

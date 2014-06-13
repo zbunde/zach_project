@@ -98,6 +98,13 @@ tr:first-child {
     float: right;
     margin-bottom: 0px
 }
+.notice {
+  margin-top: 0px;
+  margin-left: 650px;
+  float: left;
+  margin-bottom: 0px
+
+}
 
 .username {
     margin-right: 25px;
@@ -219,3 +226,15 @@ a:hover {
     border: 1px solid black;
 
 }
+.welcome_flash, .errors ul {
+  font-family: 'Roboto', sans-serif;
+  background-color: turquoise;
+  font-size: 125%;
+  min-height: 5%;
+  color: red;
+  text-align: center;
+  list-style-type: none;
+  margin-top: 10px;
+  padding-bottom: .6%;
+}
+

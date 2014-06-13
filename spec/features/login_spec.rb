@@ -9,7 +9,7 @@ feature 'Company' do
     fill_in 'Email', :with => 'zbunde@gmail.com'
     fill_in 'Password', :with => 'password'
     click_on 'login'
-    expect(page).to have_content 'Welcome back zbunde@gmail.com'
+    expect(page).to have_content 'zbunde@gmail.com'
 
   end
 

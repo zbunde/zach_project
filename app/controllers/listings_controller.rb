@@ -15,8 +15,10 @@ class ListingsController < ApplicationController
 
     if @listing.save
       @company = current_user
-      Mailer.invite_owner(owner_email, @company.email).deliver
-      flash[:notice] = "Listing created"
+      password = generate_password
+      owner = Owner.create(:email => owner_email, :password => password, :password_confirmation => password, :address => address, :company_id => current_user.id, :password_reset_token => SecureRandom.uuid)
+      Mailer.invite_owner(owner, @company).deliver
+      flash[:notice] = t('flash.listing_creation.success')
       redirect_to listing_path(@listing)
     else
       render :new
@@ -49,6 +51,12 @@ class ListingsController < ApplicationController
     @listing.destroy
     flash[:notice] = "Listing Deleted"
     redirect_to root_path
+  end
+
+  private
+
+  def generate_password
+    (0...50).map { ('a'..'z').to_a[rand(26)] }.join
   end
 
 end

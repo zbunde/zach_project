@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  flash:
+    company_creation:
+      success: "Welcome"
+    listing_creation:
+      success: "Listing Created"

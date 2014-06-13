@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#logout'
   post 'logout' => 'sessions#logout'
 
+  get 'password_reset/:token' => 'authentication#change_password'
+  post 'password_reset' => 'authentication#update_password'
+
 end
