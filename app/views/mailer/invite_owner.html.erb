@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
 <body>
-<h1><%= @company %> has invited you to join them</h1>
-
 <p>
-  To login to the site, just follow this link: <%= @url %>.
-</p></body>
+  <%= @company.email %> has invited you to join them.
+</p>
+<p>
+  To set your password, click the URL below.
+</p>
+<p> <a href="/localhost:3000/password_reset?token=<%= @owner.password_reset_token %>"> Click Here </a>
+</p>
+<p>
+  If you did not request your password to be reset, just ignore this email and your password will continue to stay the same.
+</p>
+</body>
 </html>

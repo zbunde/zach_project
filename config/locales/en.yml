@@ -26,3 +26,5 @@ en:
       success: "Welcome"
     listing_creation:
       success: "Listing Created"
+      updated: "Listing Updated"
+      deleted: "Listing Removed"

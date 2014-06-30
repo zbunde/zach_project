@@ -1,15 +1,28 @@
-
 <h1> <%= @listing.address %></h1>
 <%= link_to "Edit Listing", edit_listing_path(@listing) %><br>
 <%= link_to "Delete", listing_path, method: :delete, confirm: "Are you sure?" %><br>
-
 <%= @listing.owner_name %>
-
 <h2>Tasks:</h2>
-<%= link_to "Create Task", new_listing_task_path(@listing) %>
+<%= button_to "Create New Task", new_listing_task_path(@listing), method: "get" %>
+<br>
 
-<% @listing.tasks.each do |x| %>
-  <%=link_to x.name, listing_task_path(:listing_id => @listing, :id => x)  %>
-<% end %>
-
-
+<table class="table table-striped">
+  <tr>
+  <th>Task Title</th>
+  <th>Completed</th>
+  <th>Finish By</th>
+  <th>Delete</th>
+  </tr>
+  <% @listing.tasks.each do |x| %>
+    <tr>
+      <td><%= button_to x.name, listing_task_path(:listing_id => @listing, :id => x), method: "get", class: "butn btn-primary" %></td>
+      <% if x.completed? %>
+      <td>Yes</td>
+       <% else %>
+      <td>No</td>
+        <% end %>
+      <td><%= x.finish_by%></td>
+      <td><%= button_to "Delete", listing_task_path(:listing_id => @listing, :id => x), method: "delete", class: "butn btn-danger" %></td>
+    </tr>
+  <% end %>
+</table>

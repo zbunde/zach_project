@@ -10,7 +10,7 @@ class Mailer < ActionMailer::Base
   def invite_owner(owner, company)
     @company = company
     @owner = owner
-    @url = "http://localhost:300/password_reset?#{@owner.password_reset_token}"
+    @url = "/password_reset?token=#{@owner.password_reset_token}"
     mail(to: @owner.email, subject: "#{@company} has invited you to join")
 
   end

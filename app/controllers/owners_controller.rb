@@ -1,5 +1,13 @@
 class OwnersController < ApplicationController
-def new
+  def new
 
-end
+  end
+  def create
+
+  end
+
+  def show
+    @owner = Owner.find(params[:id])
+  end
+
 end

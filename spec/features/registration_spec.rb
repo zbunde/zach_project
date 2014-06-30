@@ -9,7 +9,9 @@ feature 'Guest' do
     fill_in 'Password', :with => 'password'
     fill_in 'Password confirmation', :with => 'password'
     click_on 'Register'
-    expect(page).to have_content 'Welcome zbunde@gmail.com'
+    expect(page).to have_content 'zbunde@gmail.com'
   end
+
+
 
 end

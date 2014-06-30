@@ -1,3 +1,13 @@
-<% @listings.each do |listing| %>
-<%=link_to listing.address, listing_path(listing) %> <%= listing.owner_name %><br>
-<% end %>
+<table class="table table-striped">
+  <th>Listing Address</th>
+  <th>Listing Owner</th>
+  <% @listings.each do |listing| %>
+    <tr>
+    <td><%= button_to listing.address, listing_path(listing), method: "get", class: "butn btn-primary" %> </td>
+    <td><%= button_to listing.owner_name, owner_path(listing), method: "get", class: "butn btn-primary" %></td>
+
+    </tr>
+  <% end %>
+</table>
+
+<%= button_to "My Listings", listings_path, method: "get", class: "butn btn-primary" %>

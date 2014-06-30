@@ -12,6 +12,11 @@
 <h2>Finish by:</h2>
 <%= @task.finish_by %>
 
-
 <h2>Completed :</h2>
-<%= @task.completed? %>
+<% if @task.completed? %>
+<%= "Yes" %>
+<% else %>
+<%= "No" %>
+<% end %>
+
+

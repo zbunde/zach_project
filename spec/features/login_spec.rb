@@ -8,7 +8,7 @@ feature 'Company' do
     click_on 'Login'
     fill_in 'Email', :with => 'zbunde@gmail.com'
     fill_in 'Password', :with => 'password'
-    click_on 'login'
+    click_on 'Login'
     expect(page).to have_content 'zbunde@gmail.com'
 
   end
